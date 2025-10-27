@@ -8,7 +8,10 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "products:add": "node scripts/add-product.js",
+    "products:delete": "node scripts/delete-product.js",
+    "products:list": "node scripts/list-products.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",

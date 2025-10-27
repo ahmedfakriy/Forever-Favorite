@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { X, Trash2, Plus, Minus, MessageCircle } from 'lucide-react';
-import { supabase, Product } from '../lib/supabase';
-import { getCartItems, updateCartItemQuantity, removeFromCart, clearCart } from '../lib/cart';
+import { Product, getProductById } from '../lib/localData';
+import { getCartItems, updateCartItemQuantity, removeFromCart, clearCart } from '../lib/cartLocal';
 
 interface ShoppingCartProps {
   onClose: () => void;
@@ -29,11 +29,7 @@ export default function ShoppingCart({ onClose, cartCount, onCartUpdate }: Shopp
 
     const itemsWithProducts = await Promise.all(
       cartItems.map(async (item) => {
-        const { data: product } = await supabase
-          .from('products')
-          .select('*')
-          .eq('id', item.product_id)
-          .single();
+        const product = await getProductById(item.product_id);
 
         return {
           id: item.id,
@@ -69,7 +65,7 @@ export default function ShoppingCart({ onClose, cartCount, onCartUpdate }: Shopp
     const total = items.reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
     const whatsappMessage = `مرحبا، أريد طلب المنتجات التالية:\n\n${message}\n\nالإجمالي: ${total.toFixed(2)} جنيه\n\nالدفع عند الاستلام`;
 
-    const whatsappNumber = '201234567890';
+    const whatsappNumber = '201023099469';
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
     window.open(url, '_blank');

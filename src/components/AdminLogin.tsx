@@ -82,9 +82,6 @@ export default function AdminLogin({ onLogin, onCancel }: AdminLoginProps) {
             </button>
           </div>
 
-          <p className="text-xs text-center text-gray-500 mt-4">
-            كلمة المرور الافتراضية: admin123
-          </p>
         </form>
       </div>
     </div>

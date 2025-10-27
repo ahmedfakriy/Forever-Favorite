@@ -1,0 +1,51 @@
+{
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Accessories",
+      "name_ar": "إكسسوارات"
+    },
+    {
+      "id": "cat-2",
+      "name": "Jewelry",
+      "name_ar": "مجوهرات"
+    },
+    {
+      "id": "cat-3",
+      "name": "Watches",
+      "name_ar": "ساعات"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "name": "Gold Bracelet",
+      "name_ar": "إسورة ذهبية",
+      "description": "إسورة ذهبية أنيقة مناسبة لجميع المناسبات",
+      "price": 350,
+      "image_url": "https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category_id": "cat-2",
+      "in_stock": true
+    },
+    {
+      "id": "prod-2",
+      "name": "Silver Ring",
+      "name_ar": "خاتم فضي",
+      "description": "خاتم فضي راقي بتصميم عصري",
+      "price": 200,
+      "image_url": "https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category_id": "cat-2",
+      "in_stock": true
+    },
+    {
+      "id": "prod-3",
+      "name": "Leather Watch",
+      "name_ar": "ساعة جلد",
+      "description": "ساعة يد جلدية فاخرة",
+      "price": 450,
+      "image_url": "https://images.pexels.com/photos/277319/pexels-photo-277319.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "category_id": "cat-3",
+      "in_stock": true
+    }
+  ]
+}

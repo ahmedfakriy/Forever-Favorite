@@ -1,7 +1,7 @@
 import { X, ShoppingCart, Check } from 'lucide-react';
-import { Product } from '../lib/supabase';
+import { Product } from '../lib/localData';
 import { useState } from 'react';
-import { addToCart } from '../lib/cart';
+import { addToCart } from '../lib/cartLocal';
 
 interface ProductDetailModalProps {
   product: Product;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase, Product, Category } from '../lib/supabase';
+import { Product, Category, getProducts, getCategories } from '../lib/localData';
 import ProductCard from './ProductCard';
 import CategoryFilter from './CategoryFilter';
 import HeroSection from './HeroSection';
@@ -7,7 +7,7 @@ import Footer from './Footer';
 import ProductDetailModal from './ProductDetailModal';
 import ShoppingCart from './ShoppingCart';
 import { Store, ShoppingBag } from 'lucide-react';
-import { getCartItems } from '../lib/cart';
+import { getCartItems } from '../lib/cartLocal';
 
 interface StoreFrontProps {
   onOpenAdmin: () => void;
@@ -30,12 +30,12 @@ export default function StoreFront({ onOpenAdmin }: StoreFrontProps) {
   async function loadData() {
     setLoading(true);
     const [categoriesResult, productsResult] = await Promise.all([
-      supabase.from('categories').select('*').order('name_ar'),
-      supabase.from('products').select('*').order('created_at', { ascending: false })
+      getCategories(),
+      getProducts()
     ]);
 
-    if (categoriesResult.data) setCategories(categoriesResult.data);
-    if (productsResult.data) setProducts(productsResult.data);
+    setCategories(categoriesResult);
+    setProducts(productsResult);
     setLoading(false);
   }
 
